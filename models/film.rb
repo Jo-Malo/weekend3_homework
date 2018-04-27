@@ -44,4 +44,9 @@ class Film
     SqlRunner.run(sql)
   end
 
+  def self.map_items(film_hashes)
+    result = film_hashes.map {|film_hash| Film.new(film_hash)}
+    return result
+  end
+
 end
