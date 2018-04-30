@@ -49,6 +49,15 @@ class Customer
     return films
   end
 
+  def number_of_tickets_bought()
+    return films().count
+  end
+
+  def take_money_from_funds(price)
+    @funds -= price
+  end
+
+
   #class methods
 
   def self.all()
@@ -56,6 +65,14 @@ class Customer
     customer_hashes = SqlRunner.run(sql)
     return Customer.map_items(customer_hashes)
   end
+
+  def self.order()
+    sql = 'SELECT * FROM customers
+    ORDER BY name'
+    customer_hashes = SqlRunner.run(sql)
+    return Customer.map_items(customer_hashes)
+  end
+  #added for PDA
 
   def self.delete_all()
     sql = "DELETE FROM customers"

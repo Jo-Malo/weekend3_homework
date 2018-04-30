@@ -49,6 +49,11 @@ class Film
     return customers
   end
 
+  def number_of_customers()
+    return customers().count
+  end
+
+
   #class methods
 
   def self.all()
